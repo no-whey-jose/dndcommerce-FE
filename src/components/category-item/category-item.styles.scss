@@ -1,5 +1,6 @@
 .category-container {
-  min-width: 30%;
+  min-width: 295px;
+  width: 30%;
   height: 240px;
   flex: 1 1 auto;
   display: flex;
@@ -58,6 +59,7 @@
       margin: 0 6px 0;
       font-size: 22px;
       color: #4a4a4a;
+      text-align: center;
     }
 
     p {

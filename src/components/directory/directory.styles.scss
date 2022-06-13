@@ -1,6 +1,13 @@
 .directory-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+@media (min-width: 724px) {
+  .directory-container {
+    flex-wrap: wrap;
+    flex-direction: inherit;
+  }
 }
