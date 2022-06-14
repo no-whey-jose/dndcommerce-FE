@@ -1,4 +1,4 @@
-import Directory from './components/directory/directory';
+import Directory from '../../components/directory/directory';
 
 const categories = [
   {
@@ -32,8 +32,8 @@ const categories = [
   },
 ];
 
-const App = () => {
+const Home = () => {
   return <Directory categories={categories} />;
 };
 
-export default App;
+export default Home;
