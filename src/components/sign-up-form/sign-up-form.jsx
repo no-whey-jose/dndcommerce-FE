@@ -3,7 +3,6 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-import { checkEmailFormat } from '../../utils/validation/inputValidation';
 import FormInput from '../form-input/form-input';
 import Button from '../button/button';
 import './sign-up-form.styles.scss';
@@ -21,12 +20,9 @@ const SignUpForm = () => {
   const { displayName, email, password, confirmPassword } = formFields;
 
   useEffect(() => {
-    const isEmail = checkEmailFormat(email);
     if (
       password === confirmPassword &&
-      password !== '' &&
-      isEmail &&
-      displayName !== ''
+      password !== ''
     ) {
       setIsDisabled(false);
     } else {
@@ -61,45 +57,53 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-form-container">
-      <h2>Don't have an account?</h2>
-      <span>Sign up with your email and password</span>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Display Name"
-          type="text"
-          name="displayName"
-          required
-          onChange={handleChange}
-          value={displayName}
-        />
-        <FormInput
-          label="Email"
-          type="email"
-          name="email"
-          required
-          onChange={handleChange}
-          value={email}
-        />
-        <FormInput
-          label="Password"
-          type="password"
-          name="password"
-          required
-          onChange={handleChange}
-          value={password}
-        />
-        <FormInput
-          label="Confirm Password"
-          type="password"
-          name="confirmPassword"
-          required
-          onChange={handleChange}
-          value={confirmPassword}
-        />
-        <Button type="submit" disabled={isDisabled}>
-          Sign Up
-        </Button>
-      </form>
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url('/login/sign-up.webp')`,
+        }}
+      />
+      <div className="sign-up-body-container">
+        <h2>Don't have an account?</h2>
+        <span>Sign up with your email and password</span>
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            label="Display Name"
+            type="text"
+            name="displayName"
+            required
+            onChange={handleChange}
+            value={displayName}
+          />
+          <FormInput
+            label="Email"
+            type="email"
+            name="email"
+            required
+            onChange={handleChange}
+            value={email}
+          />
+          <FormInput
+            label="Password"
+            type="password"
+            name="password"
+            required
+            onChange={handleChange}
+            value={password}
+          />
+          <FormInput
+            label="Confirm Password"
+            type="password"
+            name="confirmPassword"
+            required
+            onChange={handleChange}
+            value={confirmPassword}
+          />
+          <Button type="submit" disabled={isDisabled}>
+            Sign Up
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };
