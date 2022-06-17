@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
 } from 'firebase/auth';
@@ -26,6 +27,7 @@ provider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInUserWithEmailAndPassword = async (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 export const db = getFirestore();
 
